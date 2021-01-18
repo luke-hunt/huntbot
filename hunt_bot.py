@@ -277,6 +277,21 @@ async def town(ctx, ):
 @client.command()
 async def wag(ctx, ):
     await ctx.send('wan')
+    
+    
+@client.command()
+async def sav2(ctx, ):
+    await ctx.send('sorry was just wheelbarrowing a shit ton of bricks lmao')
+    
+    
+@client.command()
+async def colby2(ctx, ):
+    await ctx.send('are you fucking shitting me up the ass right now')
+    
+    
+@client.command()
+async def kenny2(ctx, ):
+    await ctx.send('basically you just take the ting and you just whack her in the face. one time. assert your dominance')
 
 
 
