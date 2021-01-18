@@ -1,6 +1,7 @@
 import discord
 import os
 from discord import client
+from discord import member
 from discord.ext import commands
 from discord.ext.commands import Bot
 
@@ -29,6 +30,11 @@ async def setcode(ctx, code):
 @client.command()
 async def code(ctx):
     await ctx.send(code_au)
+
+@client.command()
+async def avatar(ctx, *,  avamember : discord.Member=None):
+    userAvatarUrl = avamember.avatar_url
+    await ctx.send(userAvatarUrl)
 
 
 @client.command()
@@ -271,6 +277,8 @@ async def town(ctx, ):
 @client.command()
 async def wag(ctx, ):
     await ctx.send('wan')
+
+
 
 
 
