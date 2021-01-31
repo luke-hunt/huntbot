@@ -310,7 +310,7 @@ async def on_raw_reaction_add(payload):
 
         reaction = get(message.reactions, emoji=payload.emoji.name)
 
-        if reaction and reaction.count > 5 and hof_channel is not None:
+        if reaction and reaction.count > 4 and hof_channel is not None:
             hof_messages = await hof_channel.history(limit=10).flatten()
 
             for hof_message in hof_messages:
