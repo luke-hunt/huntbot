@@ -293,6 +293,10 @@ async def colby2(ctx, ):
 async def kenny2(ctx, ):
     await ctx.send('basically you just take the ting and you just whack her in the face. one time. assert your dominance')
 
+@client.command()
+async def playlist(ctx, ):
+    await ctx.send('https://open.spotify.com/playlist/4L93dDm2jsDxXVaRXL7Nfd?si=SHVwnVnaQYqW7quBZOjMEw')
+
 @client.event
 async def on_raw_reaction_add(payload):
     print("-------------------------------------------------")
