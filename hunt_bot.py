@@ -296,6 +296,11 @@ async def kenny2(ctx, ):
 @client.command()
 async def playlist(ctx, ):
     await ctx.send('https://open.spotify.com/playlist/4L93dDm2jsDxXVaRXL7Nfd?si=SHVwnVnaQYqW7quBZOjMEw')
+    
+@client.command()
+async def activity(ctx, ):
+    await ctx.send('any town activities?')    
+
 
 @client.event
 async def on_raw_reaction_add(payload):
