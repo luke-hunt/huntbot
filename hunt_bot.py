@@ -1,10 +1,12 @@
 import discord
 import os
+import spotipy
 from discord import client
 from discord import member
 from discord.ext import commands
 from discord.ext.commands import Bot
 from discord.utils import get
+from spotipy.oauth2 import SpotifyClientCredentials
 
 TOKEN = os.environ.get('DISCORD_TOKEN')
 
@@ -299,7 +301,48 @@ async def playlist(ctx, ):
     
 @client.command()
 async def activity(ctx, ):
-    await ctx.send('any town activities?')    
+    await ctx.send('any town activities?')
+
+@client.command()
+async def whoadded(ctx, ):
+    channel = ctx.channel
+    messages = await channel.history(limit=10).flatten()
+    track_id = ''
+    for message in messages:
+        if message.author.name == 'Groovy':
+            groovy_message = await channel.fetch_message(message.id)
+            # [Young Thug - Memo](https://open.spotify.com/track/7tk5tOCj84jine8kKJkPYs) [<@290610640681304067>]
+            print('--------------------------------')
+            print(groovy_message.embeds[0].description)
+            print('--------------------------------')
+            track_id = groovy_message.embeds[0].description.split('/track/')[1].split(')')[0]
+            print('--------------------------------')
+            print(track_id)
+            print('--------------------------------')
+            break
+
+    auth_manager = SpotifyClientCredentials()
+    sp = spotipy.Spotify(auth_manager=auth_manager)
+
+    playlist = sp.playlist('4L93dDm2jsDxXVaRXL7Nfd')
+    tracks = playlist.get("tracks")
+
+    while tracks:
+        print('--------------------------------')
+        print(tracks.get("items")[0])
+        print('--------------------------------')
+        print('--------------------------------')
+        print(len(playlist.get("tracks").get("items")))
+        print('--------------------------------')
+
+        for track in tracks.get("items"):
+            print(track.get('track').get('id'))
+            if track_id == track.get('track').get('id'):
+                return await ctx.send(track.get("added_by").get("id"))
+
+        tracks = sp.next(tracks)
+
+    await ctx.send("Not found")
 
 
 @client.event
