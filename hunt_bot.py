@@ -302,6 +302,9 @@ async def playlist(ctx, ):
 async def activity(ctx, ):
     await ctx.send('any town activities?')    
 
+@client.command()
+async def fbi(ctx, ):
+    await ctx.send('I HATE YOU FBI!!!')
 
 @client.event
 async def on_raw_reaction_add(payload):
