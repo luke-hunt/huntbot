@@ -15,6 +15,7 @@ hof_guild_channels = { 734158340799725568: 805317843238912021, 51521560925280669
 
 @client.event
 async def on_ready():
+    await client.change_presence(activity=discord.Game(name='vibing with the towndem'))
     print('Bot is ready')
 
 @client.event
