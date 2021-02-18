@@ -5,6 +5,7 @@ from discord import member
 from discord.ext import commands
 from discord.ext.commands import Bot
 from discord.utils import get
+from random import randint
 
 TOKEN = os.environ.get('DISCORD_TOKEN')
 
@@ -305,6 +306,11 @@ async def activity(ctx, ):
 @client.command()
 async def fbi(ctx, ):
     await ctx.send('I HATE YOU FBI!!!')
+
+@client.command()
+async def huntball(ctx, ):
+    responses = ["no u", "SHUT UP!!! (loudly)", "maybe :3"]
+    await ctx.send(responses[randint(0, 2)])
 
 @client.event
 async def on_raw_reaction_add(payload):
