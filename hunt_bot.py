@@ -308,9 +308,12 @@ async def fbi(ctx, ):
     await ctx.send('I HATE YOU FBI!!!')
 
 @client.command()
-async def huntball(ctx, ):
+async def huntball(ctx, *args):
     responses = ["yes", "most likely :3", "if mlk also says yes, it's a yes", "concentrate and ask again later 0_0" ,"heyyyy yes, definitely", ":S" , "no u", "SHUT UP!!! (loudly)", "maybe :3", "cannot predict (contact technical support)", "this makes me opposite of uwu", "no proof no pudding innit", "my sources say no :(", "no (respectfully)", "heyyyy, this is a no", "yes babes", "sorry was wheelbarrowing a shit ton of bricks but the answer is yes 👍", ":yes:"]
-    await ctx.send(responses[randint(0, 17)])
+    if len(args) == 0:
+       await ctx.send("u didn't ask a question dingus") 
+    else:
+        await ctx.send(responses[randint(0, 17)])
 
 @client.event
 async def on_raw_reaction_add(payload):
